@@ -9,7 +9,6 @@
     "esModuleInterop": true,
   },
   "exclude": [
-      "tests",
       "dist",
       "node_modules"
   ]
