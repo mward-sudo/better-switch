@@ -1,3 +1,5 @@
+[![RelativeCI](https://badges.relative-ci.com/badges/AIKtaLiweEEbVOTnUg01?branch=main)](https://app.relative-ci.com/projects/AIKtaLiweEEbVOTnUg01)
+
 # @scripthungry/better-switch
 A simple alternative to the switch statement for matching strings and returning values
 
