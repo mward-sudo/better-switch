@@ -1,11 +1,25 @@
 import {fileURLToPath} from 'node:url'
 import path from 'node:path'
+import {RelativeCiAgentWebpackPlugin} from '@relative-ci/agent'
+import {StatsWriterPlugin} from 'webpack-stats-plugin'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const config = {
   entry: './index.ts',
   devtool: 'source-map',
+  plugins: [
+    new StatsWriterPlugin({
+      filename: '../webpack-stats.json',
+      stats: {
+        assets: true,
+        entrypoints: true,
+        chunks: true,
+        modules: true,
+      },
+    }),
+    new RelativeCiAgentWebpackPlugin(),
+  ],
   module: {
     rules: [{
       test: /\.ts?$/,
