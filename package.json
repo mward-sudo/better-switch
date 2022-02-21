@@ -42,5 +42,8 @@
   "xo": {
     "space": true,
     "semicolon": false
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
