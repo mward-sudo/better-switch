@@ -19,7 +19,7 @@ jobs:
       - run: npm ci
 
       # Build and output webpack stats to webpack-stats.json
-      - run: npm run build --json webpack-stats.json
+      - run: npm run build
 
       # Send webpack stats and build information to RelativeCI
       - name: Send webpack stats to RelativeCI
