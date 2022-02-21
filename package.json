@@ -5,6 +5,7 @@
   "main": "./dist/index.js",
   "type": "module",
   "scripts": {
+    "build": "webpack",
     "start": "webpack-dev-server --mode development",
     "watch": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
