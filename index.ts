@@ -44,7 +44,7 @@ const generateErrorMessage: BetterSwitchError = (error, match, caseObject) => {
     }
 
     if (noKeyToReturn(match, caseObject)) {
-      return `'BetterSwitch: ${match}' is not a key in your caseObject parameter, and no 'default' key is provided`
+      return `BetterSwitch: '${match}' is not a key in your caseObject parameter, and no 'default' key is provided`
     }
   }
 
