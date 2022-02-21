@@ -18,11 +18,8 @@ jobs:
       # Install dependencies
       - run: npm ci
 
-      # Build and output webpack stats to webpack-stats.json
+      # Build and output webpack stats to webpack-stats.json and send webpack stats and build information to RelativeCI
       - run: npm run build
-
-      # Send webpack stats and build information to RelativeCI
-      - name: Send webpack stats to RelativeCI
         uses: relative-ci/agent-action@v2
         with:
           webpackStatsFile: ./webpack-stats.json
