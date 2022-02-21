@@ -10,7 +10,7 @@ const config = {
   devtool: 'source-map',
   plugins: [
     new StatsWriterPlugin({
-      filename: '../webpack-stats.json',
+      filename: './webpack-stats.json',
       stats: {
         assets: true,
         entrypoints: true,
@@ -18,7 +18,6 @@ const config = {
         modules: true,
       },
     }),
-    new RelativeCiAgentWebpackPlugin(),
   ],
   module: {
     rules: [{
