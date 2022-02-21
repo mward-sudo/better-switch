@@ -20,7 +20,6 @@ jobs:
 
       # Build and output webpack stats to webpack-stats.json and send webpack stats and build information to RelativeCI
       - run: npm run build
-        with:
-          webpackStatsFile: ./webpack-stats.json
+        env:
+          webpackStatsFile: ./.next/stats.json
           key: ${{ secrets.RELATIVE_CI_KEY }}
-          token: ${{ secrets.GITHUB_TOKEN }}
