@@ -41,7 +41,19 @@
   },
   "xo": {
     "space": true,
-    "semicolon": false
+    "semicolon": false,
+    "rules": {
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+         }
+      ]
+    }
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

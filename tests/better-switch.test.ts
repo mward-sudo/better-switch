@@ -16,7 +16,7 @@ test('should return \'default\'', () => {
   expect(result).toBe('default')
 })
 
-test('should return false' , () => {
+test('should return false', () => {
   const result = betterSwitch('test', {
     test: () => false,
     default: () => true,
@@ -24,7 +24,7 @@ test('should return false' , () => {
   expect(result).toBe(false)
 })
 
-test('should return true' , () => {
+test('should return true', () => {
   const result = betterSwitch<string | boolean>('none existent key', {
     test: () => 'test',
     default: () => true,
@@ -32,11 +32,10 @@ test('should return true' , () => {
   expect(result).toBe(true)
 })
 
-test('should throw an error' , () => {
+test('should throw an error', () => {
   expect(() => {
-    const result = betterSwitch('none existent key', {
+    betterSwitch('none existent key', {
       test: () => 'test',
     })
   }).toThrowError()
 })
-
