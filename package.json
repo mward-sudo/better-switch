@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/mward-sudo/better-switch#readme",
   "devDependencies": {
+    "@relative-ci/agent": "^3.1.1",
     "@swc/cli": "^0.1.55",
     "@swc/core": "^1.2.141",
     "chokidar": "^3.5.3",
@@ -32,6 +33,7 @@
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4",
+    "webpack-stats-plugin": "^1.0.3",
     "xo": "^0.48.0"
   },
   "xo": {
