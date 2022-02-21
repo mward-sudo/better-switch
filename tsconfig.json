@@ -5,7 +5,8 @@
     "strict": true, 
     "declaration": true,
     "outDir": "./dist",
-    "lib": ["ESNext"]
+    "lib": ["ESNext"],
+    "esModuleInterop": true,
   },
   "exclude": [
       "tests",
