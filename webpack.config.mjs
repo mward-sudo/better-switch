@@ -1,6 +1,5 @@
 import {fileURLToPath} from 'node:url'
 import path from 'node:path'
-import {RelativeCiAgentWebpackPlugin} from '@relative-ci/agent'
 import {StatsWriterPlugin} from 'webpack-stats-plugin'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -18,7 +17,6 @@ const config = {
         modules: true,
       },
     }),
-    new RelativeCiAgentWebpackPlugin(),
   ],
   module: {
     rules: [{

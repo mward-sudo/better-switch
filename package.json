@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/mward-sudo/better-switch#readme",
   "devDependencies": {
-    "@relative-ci/agent": "^3.1.1",
     "@swc/cli": "^0.1.55",
     "@swc/core": "^1.2.141",
     "@types/jest": "^27.4.0",
