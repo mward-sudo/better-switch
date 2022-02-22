@@ -1,6 +1,6 @@
 {
   "name": "@scripthungry/better-switch",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A simple alternative to the switch statement for matching strings and returning values",
   "main": "./dist/index.js",
   "type": "module",
@@ -58,8 +58,5 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
-  },
-  "dependencies": {
-    "@scripthungry/better-switch": "^1.0.6"
   }
 }
