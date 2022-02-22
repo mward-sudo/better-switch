@@ -1,4 +1,5 @@
-type BetterSwitch = <T>(match: string, caseObject: Record<string, CaseObjectFunction<T>>) => T
+type BetterSwitch = <T>(match: string, caseObject: CaseObject<T>) => T
+type CaseObject<T> = Record<string, CaseObjectFunction<T>>
 type CaseObjectFunction<T> = () => T
 
 // BetterSwitchTest and BetterSwitchError both reuse the parameters from BetterSwitch
@@ -26,15 +27,33 @@ const betterSwitch: BetterSwitch = (match, caseObject) => {
   }
 }
 
+// Both of the parameters are undefined or null
+const bothAreUndefinedOrNull: BetterSwitchTest = (match, caseObject) => (match === undefined || match === null) && (caseObject === undefined || caseObject === null)
 // Test if caseObject[match] exists and if caseObject[match] is not returning a function
 const matchKeyIsNotFunction: BetterSwitchTest = (match, caseObject) => match in caseObject && typeof caseObject[match] !== 'function'
 // Test if caseObject.defaul exists and if caseObject.defaul is not returning a function
 const defaultIsNotFunction: BetterSwitchTest = (match, caseObject) => 'default' in caseObject && typeof caseObject.default !== 'function'
 /** Tests if caseObject[match] does not exist and if caseObject.default does not exist */
 const noKeyToReturn: BetterSwitchTest = (match, caseObject) => !(match in caseObject) && !('default' in caseObject)
+/** Test if match is not a string */
+const isNotString = (match: string) => typeof match !== 'string'
+// Test if parameter is an object literal
+const isObjectLiteral = (object: CaseObject<unknown>) => object !== null && object !== undefined && Object.is(object.constructor, Object)
 
 const generateErrorMessage: BetterSwitchError = (error, match, caseObject) => {
   if (error instanceof TypeError) {
+    if (bothAreUndefinedOrNull(match, caseObject)) {
+      return 'BetterSwitch: No arguments have been passed'
+    }
+
+    if (!isObjectLiteral(caseObject)) {
+      return 'BetterSwitch: The caseObject parameter is not an object literal'
+    }
+
+    if (isNotString(match)) {
+      return 'BetterSwitch: The match parameter is not a string'
+    }
+
     if (matchKeyIsNotFunction(match, caseObject)) {
       return `BetterSwitch: The '${match}' key in your caseObject parameter does not return a function`
     }
