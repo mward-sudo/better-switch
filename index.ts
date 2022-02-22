@@ -42,29 +42,13 @@ const isObjectLiteral = (object: CaseObject<unknown>) => object !== null && obje
 
 const generateErrorMessage: BetterSwitchError = (error, match, caseObject) => {
   if (error instanceof TypeError) {
-    if (bothAreUndefinedOrNull(match, caseObject)) {
-      return 'BetterSwitch: No arguments have been passed'
-    }
-
-    if (!isObjectLiteral(caseObject)) {
-      return 'BetterSwitch: The caseObject parameter is not an object literal'
-    }
-
-    if (isNotString(match)) {
-      return 'BetterSwitch: The match parameter is not a string'
-    }
-
-    if (matchKeyIsNotFunction(match, caseObject)) {
-      return `BetterSwitch: The '${match}' key in your caseObject parameter does not return a function`
-    }
-
-    if (defaultIsNotFunction(match, caseObject)) {
-      return `BetterSwitch: The '${match}' key in your caseObject parameter does not exist, and the 'default' key does not return a function`
-    }
-
-    if (noKeyToReturn(match, caseObject)) {
-      return `BetterSwitch: '${match}' is not a key in your caseObject parameter, and no 'default' key is provided`
-    }
+    return (bothAreUndefinedOrNull(match, caseObject) && 'BetterSwitch: No arguments have been passed')
+        || (!isObjectLiteral(caseObject) && 'BetterSwitch: The caseObject parameter is not an object literal')
+        || (isNotString(match) && 'BetterSwitch: The match parameter is not a string')
+        || (matchKeyIsNotFunction(match, caseObject) && `BetterSwitch: The '${match}' key in your caseObject parameter does not return a function`)
+        || (defaultIsNotFunction(match, caseObject) && `BetterSwitch: The '${match}' key in your caseObject parameter does not exist, and the 'default' key does not return a function`)
+        || (noKeyToReturn(match, caseObject) && `BetterSwitch: '${match}' is not a key in your caseObject parameter, and no 'default' key is provided`)
+        || `BetterSwitch: Unhandled error (${typeof error})`
   }
 
   // Shouldn't hit this
