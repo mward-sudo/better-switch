@@ -1,9 +1,9 @@
-name: 'coverage'
+name: 'Jest Coverage'
 on:
     pull_request:
         branches:
-            - master
             - main
+            - dev
 jobs:
     coverage:
         runs-on: ubuntu-latest
