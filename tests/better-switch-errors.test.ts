@@ -3,7 +3,7 @@
 
 // Typescript errors turned off to test js runtime checks
 
-import betterSwitch from '../index'
+import betterSwitch from '../src/index'
 
 test('should throw an error because of a nonexistent key and no default key is provided', () => {
   expect(() => {

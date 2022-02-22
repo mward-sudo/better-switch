@@ -1,10 +1,5 @@
-type BetterSwitch = <T>(match: string, caseObject: CaseObject<T>) => T
-type CaseObject<T> = Record<string, CaseObjectFunction<T>>
-type CaseObjectFunction<T> = () => T
-
-// BetterSwitchTest and BetterSwitchError both reuse the parameters from BetterSwitch
-type BetterSwitchTest = (...args: Parameters<BetterSwitch>) => boolean
-type BetterSwitchError = (error: unknown, ...args: Parameters<BetterSwitch>) => string
+import type {BetterSwitch, BetterSwitchError} from './types'
+import {bothAreUndefinedOrNull, defaultIsNotFunction, isNotString, isObjectLiteral, matchKeyIsNotFunction, noKeyToReturn} from './runtime-checks'
 
 /**
  * A simple switch statement replacement that matches a string key and returns a value
@@ -26,19 +21,6 @@ const betterSwitch: BetterSwitch = (match, caseObject) => {
     throw new Error(generateErrorMessage(error, match, caseObject))
   }
 }
-
-// Both of the parameters are undefined or null
-const bothAreUndefinedOrNull: BetterSwitchTest = (match, caseObject) => (match === undefined || match === null) && (caseObject === undefined || caseObject === null)
-// Test if caseObject[match] exists and if caseObject[match] is not returning a function
-const matchKeyIsNotFunction: BetterSwitchTest = (match, caseObject) => match in caseObject && typeof caseObject[match] !== 'function'
-// Test if caseObject.defaul exists and if caseObject.defaul is not returning a function
-const defaultIsNotFunction: BetterSwitchTest = (match, caseObject) => 'default' in caseObject && typeof caseObject.default !== 'function'
-/** Tests if caseObject[match] does not exist and if caseObject.default does not exist */
-const noKeyToReturn: BetterSwitchTest = (match, caseObject) => !(match in caseObject) && !('default' in caseObject)
-/** Test if match is not a string */
-const isNotString = (match: string) => typeof match !== 'string'
-// Test if parameter is an object literal
-const isObjectLiteral = (object: CaseObject<unknown>) => object !== null && object !== undefined && Object.is(object.constructor, Object)
 
 const generateErrorMessage: BetterSwitchError = (error, match, caseObject) => {
   if (error instanceof TypeError) {

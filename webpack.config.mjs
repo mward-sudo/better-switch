@@ -5,7 +5,7 @@ import {StatsWriterPlugin} from 'webpack-stats-plugin'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const config = {
-  entry: './index.ts',
+  entry: './src/index.ts',
   devtool: 'source-map',
   plugins: [
     new StatsWriterPlugin({

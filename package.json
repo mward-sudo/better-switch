@@ -51,12 +51,15 @@
           "jsx": "never",
           "ts": "never",
           "tsx": "never"
-         }
+        }
       ]
     }
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
+  },
+  "dependencies": {
+    "@scripthungry/better-switch": "^1.0.6"
   }
 }
