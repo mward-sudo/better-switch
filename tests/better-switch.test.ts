@@ -31,11 +31,3 @@ test('should return true', () => {
   })
   expect(result).toBe(true)
 })
-
-test('should throw an error', () => {
-  expect(() => {
-    betterSwitch('none existent key', {
-      test: () => 'test',
-    })
-  }).toThrowError()
-})
