@@ -1,4 +1,4 @@
-import betterSwitch from '../index'
+import betterSwitch from '../src/index'
 
 test('should return \'test\'', () => {
   const result = betterSwitch('test', {
