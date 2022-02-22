@@ -3,7 +3,7 @@ module.exports = {
   preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
   coverageThreshold: {
-    al: {
+    global: {
       lines: 80,
     },
   },
