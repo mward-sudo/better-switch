@@ -31,6 +31,15 @@ test('should throw an error because matched key does not return a function', () 
   }).toThrowError('BetterSwitch: The \'test\' key in your caseObject parameter does not return a function')
 })
 
+test('should throw an error because the first parameter is not a string', () => {
+  expect(() => {
+    betterSwitch(true, {
+      test: 'test',
+      default: 'default',
+    })
+  }).toThrowError('BetterSwitch: The match parameter is not a string')
+})
+
 test('should throw an error because the second parameter is not an object literal', () => {
   expect(() => {
     betterSwitch('test', 'test')
