@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mward-sudo/better-switch.git"
+    "url": "git+https://github.com/scripthungry/better-switch.git"
   },
   "keywords": [
     "switch"
@@ -20,9 +20,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mward-sudo/better-switch/issues"
+    "url": "https://github.com/scripthungry/better-switch/issues"
   },
-  "homepage": "https://github.com/mward-sudo/better-switch#readme",
+  "homepage": "https://github.com/scripthungry/better-switch#readme",
   "devDependencies": {
     "@swc/cli": "^0.1.55",
     "@swc/core": "^1.2.141",
