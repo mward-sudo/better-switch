@@ -1,5 +1,12 @@
 import type {BetterSwitch, BetterSwitchError} from './types'
-import {bothAreUndefinedOrNull, defaultIsNotFunction, isNotString, isObjectLiteral, matchKeyIsNotFunction, noKeyToReturn} from './runtime-checks'
+import {
+  bothAreUndefinedOrNull,
+  defaultIsNotFunction,
+  isNotString,
+  isObjectLiteral,
+  matchKeyIsNotFunction,
+  noKeyToReturn,
+} from './runtime-checks'
 
 /**
  * A simple switch statement replacement that matches a string key and returns a value
@@ -24,13 +31,21 @@ const betterSwitch: BetterSwitch = (match, caseObject) => {
 
 const generateErrorMessage: BetterSwitchError = (error, match, caseObject) => {
   if (error instanceof TypeError) {
-    return (bothAreUndefinedOrNull(match, caseObject) && 'BetterSwitch: No arguments have been passed')
-        || (!isObjectLiteral(caseObject) && 'BetterSwitch: The caseObject parameter is not an object literal')
-        || (isNotString(match) && 'BetterSwitch: The match parameter is not a string')
-        || (matchKeyIsNotFunction(match, caseObject) && `BetterSwitch: The '${match}' key in your caseObject parameter does not return a function`)
-        || (defaultIsNotFunction(match, caseObject) && `BetterSwitch: The '${match}' key in your caseObject parameter does not exist, and the 'default' key does not return a function`)
-        || (noKeyToReturn(match, caseObject) && `BetterSwitch: '${match}' is not a key in your caseObject parameter, and no 'default' key is provided`)
-        || `BetterSwitch: Unhandled error (${typeof error})`
+    return (
+      (bothAreUndefinedOrNull(match, caseObject) &&
+        'BetterSwitch: No arguments have been passed') ||
+      (!isObjectLiteral(caseObject) &&
+        'BetterSwitch: The caseObject parameter is not an object literal') ||
+      (isNotString(match) &&
+        'BetterSwitch: The match parameter is not a string') ||
+      (matchKeyIsNotFunction(match, caseObject) &&
+        `BetterSwitch: The '${match}' key in your caseObject parameter does not return a function`) ||
+      (defaultIsNotFunction(match, caseObject) &&
+        `BetterSwitch: The '${match}' key in your caseObject parameter does not exist, and the 'default' key does not return a function`) ||
+      (noKeyToReturn(match, caseObject) &&
+        `BetterSwitch: '${match}' is not a key in your caseObject parameter, and no 'default' key is provided`) ||
+      `BetterSwitch: Unhandled error (${typeof error})`
+    )
   }
 
   // Shouldn't hit this
