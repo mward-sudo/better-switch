@@ -1,6 +1,6 @@
 {
   "name": "@scripthungry/better-switch",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A simple alternative to the switch statement for matching strings and returning values",
   "main": "./dist/index.js",
   "type": "module",
