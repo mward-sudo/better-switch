@@ -39,9 +39,15 @@
     "webpack-stats-plugin": "^1.0.3",
     "xo": "^0.48.0"
   },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false
+  },
   "xo": {
-    "space": true,
-    "semicolon": false,
+    "prettier": true,
     "rules": {
       "import/extensions": [
         "error",
