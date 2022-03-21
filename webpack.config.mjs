@@ -2,6 +2,8 @@ import {fileURLToPath} from 'node:url'
 import path from 'node:path'
 import {StatsWriterPlugin} from 'webpack-stats-plugin'
 
+import NpmDtsPlugin from 'npm-dts-webpack-plugin'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const config = {
@@ -17,33 +19,39 @@ const config = {
         modules: true,
       },
     }),
+    new NpmDtsPlugin({
+      entry: './src/index.ts',
+      output: './dist/index.d.ts',
+    }),
   ],
   module: {
-    rules: [{
-      test: /\.ts?$/,
-      use: {
-        loader: 'swc-loader',
-        options: {
-          jsc: {
-            parser: {
-              syntax: 'typescript',
-              tsx: false,
+    rules: [
+      {
+        test: /\.ts?$/,
+        use: {
+          loader: 'swc-loader',
+          options: {
+            jsc: {
+              parser: {
+                syntax: 'typescript',
+                tsx: false,
+              },
+              target: 'es2015',
+              loose: false,
+              minify: {
+                compress: true,
+                mangle: true,
+              },
             },
-            target: 'es2015',
-            loose: false,
-            minify: {
-              compress: true,
-              mangle: true,
+            module: {
+              type: 'es6',
             },
+            sourceMaps: true,
           },
-          module: {
-            type: 'es6',
-          },
-          sourceMaps: true,
         },
+        exclude: /node_modules/,
       },
-      exclude: /node_modules/,
-    }],
+    ],
   },
   resolve: {
     extensions: ['.ts', '.js'],
