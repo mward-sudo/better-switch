@@ -49,7 +49,11 @@ const config = {
             sourceMaps: true,
           },
         },
-        exclude: /node_modules/,
+        exclude: [
+          path.resolve(__dirname, "node_modules"),
+          path.resolve(__dirname, "mod.ts"),
+          path.resolve(__dirname, "dist"),
+        ],
       },
     ],
   },

@@ -19,7 +19,7 @@ import {
  *                     In typescript the returned values must all be of the same type
  * @returns The value from the matching or default key from caseObject
  */
-const betterSwitch: BetterSwitch = (match, caseObject) => {
+export const betterSwitch: BetterSwitch = (match, caseObject) => {
   try {
     // If caseObject[match]() does not exist, return caseObject.default()
     return match in caseObject ? caseObject[match]() : caseObject.default()
