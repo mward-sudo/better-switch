@@ -1,6 +1,6 @@
 {
   "name": "@scripthungry/better-switch",
-  "version": "1.0.9",
+  "version": "1.0.14",
   "description": "A simple alternative to the switch statement for matching strings and returning values",
   "main": "./dist/index.js",
   "type": "module",
@@ -21,9 +21,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scripthungry/better-switch/issues"
+    "url": "https://github.com/mward-sudo/better-switch/issues"
   },
-  "homepage": "https://github.com/scripthungry/better-switch#readme",
+  "homepage": "https://github.com/mward-sudo/better-switch#readme",
   "devDependencies": {
     "@swc/cli": "^0.1.55",
     "@swc/core": "^1.2.141",
