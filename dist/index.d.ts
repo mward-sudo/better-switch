@@ -11,7 +11,7 @@ declare module '@scripthungry/better-switch/src/index' {
    *                     In typescript the returned values must all be of the same type
    * @returns The value from the matching or default key from caseObject
    */
-  export const betterSwitch: BetterSwitch;
+  const betterSwitch: BetterSwitch;
   export default betterSwitch;
 
 }

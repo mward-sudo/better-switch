@@ -8,7 +8,4 @@
   "editor.formatOnSave": true,
   "xo.enable": true,
   "xo.format.enable": true,
-  "deno.enablePaths": ["mod.ts"],
-  "deno.lint": true,
-  "deno.unstable": true,
 }
